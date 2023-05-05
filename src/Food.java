@@ -5,12 +5,9 @@ import java.awt.event.MouseEvent;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Food extends JPanel implements MouseListener {
-    int size = 10;
-    double spawnRate;
+    int size = 40;
 
     public Food() {
-        this.size = size;
-        this.spawnRate = spawnRate;
         addMouseListener(this);
     }
 
@@ -24,7 +21,7 @@ public class Food extends JPanel implements MouseListener {
     }
 
     /*
-    this method paint ONE green rectangle
+    this method paints ONE green rectangle
      */
     protected void addFood(Graphics g) {
         g.setColor(Color.GREEN);
@@ -33,9 +30,12 @@ public class Food extends JPanel implements MouseListener {
     int randomNumber1 = ThreadLocalRandom.current().nextInt(1, 10 + 1);
     int randomNumber2 = ThreadLocalRandom.current().nextInt(1, 10 + 1);
 
+    int playerScore = 0;
+
     @Override
     public void mouseClicked(MouseEvent e) {
-
+        playerScore += 1;
+        System.out.println(playerScore);
     }
 
     @Override
